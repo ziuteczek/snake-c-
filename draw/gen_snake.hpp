@@ -1,7 +1,8 @@
 #include <vector>
 void gen_player(std::vector<std::vector<char>> &board, std::vector<char> tail, int player_x, int player_y, char player_char = 'x', char tail_char = '*')
 {
-    board[player_x][player_y] = player_char;
+    board[player_y][player_x] = player_char;
+    if (tail.size()<1) return;
     int last_x = player_x, last_y = player_y;
     for (int tail_n = 0; tail_n < tail.size(); tail_n++)
     {
