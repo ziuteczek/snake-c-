@@ -1,12 +1,15 @@
 #include <vector>
 #include <ctime>
-void gen_orange(std::vector<std::vector<char>> board, int width, const int height, char orange_char, char allow_orange_spawn_char)
+int orange_placement_rand(int axis_width)
 {
-    int orange_x, orange_y;
+    return rand() % (axis_width - 1) + 1;
+}
+void gen_orange(std::vector<std::vector<char>> &board, int width, const int height, char orange_char, char allow_orange_spawn_char, int &orange_x, int &orange_y)
+{
     do
     {
-        orange_x = rand() % (width - 1) + 1;
-        orange_y = rand() % (width - 1) + 1;
+        orange_x = orange_placement_rand(width);
+        orange_y = orange_placement_rand(height);
     } while (board[orange_y][orange_x] != allow_orange_spawn_char);
     board[orange_y][orange_x] == orange_char;
 }
